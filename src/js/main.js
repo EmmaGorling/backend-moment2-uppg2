@@ -70,7 +70,7 @@ function writeData(workexps) {
             article.appendChild(deleteBtn);
             deleteBtn.addEventListener('click', () => {
                 deleteWorkExp(workexp.id);
-            })
+            });
             
         });
     } else {
