@@ -8,19 +8,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Get data from API
 async function getData() {
+    const workexpDiv = document.getElementById('workexperiences');
+    workexpDiv.innerHTML = '';
     try {
         const response = await fetch(url);
         const data = await response.json();
         console.log(data)
-        writeData(data);
+        writeData(data, workexpDiv);
     } catch (error) {
         console.log('An error occured: ' + error);
     }
 };
 
 // Write out to index.html
-function writeData(workexps) {
-    const workexpDiv = document.getElementById('workexperiences');
+function writeData(workexps, workexpDiv) {
 
     if(workexps.length > 0) {
         // Loop trough and create articles
@@ -81,18 +82,71 @@ function writeData(workexps) {
 
 // Change workexperience
 function changeWorkExp(workexp) {
+    // Set the values of inputs to existing object
+    let companynameInput = document.getElementById('changeCompanyname');
+    let jobtitleInput = document.getElementById('changeJobtitle');
+    let locationInput = document.getElementById('changeLocation');
+    let descriptionInput = document.getElementById('changeDescription');
 
+    companynameInput.value = workexp.companyname;
+    jobtitleInput.value = workexp.jobtitle;
+    locationInput.value = workexp.location;
+    descriptionInput.value = workexp.description;
+
+    // Form eventlistener
+    const changeForm = document.getElementById('changeForm');
+    changeForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        updateWorkExp(workexp.id);
+    });
 };
+
+// Save changes
+async function updateWorkExp(id) {
+    // Get the new values from inputs
+    let workexperience = {
+        companyname: document.getElementById('changeCompanyname').value,
+        jobtitle: document.getElementById('changeJobtitle').value,
+        location: document.getElementById('changeLocation').value,
+        startdate: document.getElementById('changeStartdate').value,
+        enddate: document.getElementById('changeEnddate').value,
+        description: document.getElementById('changeDescription').value
+    }
+    
+    // Fetch with put method
+    try {
+        const response = await fetch(url + '/' + id, {
+            method: "PUT",
+            headers: {
+                "content-type": "Application/json"
+            },
+            body: JSON.stringify(workexperience)
+        });
+        const data = await response.json();
+        // Get data agin and write it out
+        getData();
+    } catch (error) {
+        console.log(error);
+    }
+
+    
+}
 
 // Delete workexperience
 async function deleteWorkExp(id) {
-    const deleteUrl = url + '/' + id;
-    fetch(deleteUrl, {
-        method: "DELETE",
-        headers: {
-        "content-type": "Applicaton/json"
-        }
-    });
-
-    writeData();
+    // Fetch with delete-method
+    try {
+        const response = await fetch(url + '/' + id, {
+            method: "DELETE",
+            headers: {
+            "content-type": "Applicaton/json"
+            }
+        });
+        const data = await response.json();
+        // Get data again and write it out
+        getData();
+    } catch (error) {
+        console.log(error);
+    }
+    
 }
