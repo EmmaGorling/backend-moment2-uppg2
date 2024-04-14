@@ -13,7 +13,6 @@ async function getData() {
     try {
         const response = await fetch(url);
         const data = await response.json();
-        console.log(data)
         writeData(data, workexpDiv);
     } catch (error) {
         console.log('An error occured: ' + error);
@@ -82,6 +81,7 @@ function writeData(workexps, workexpDiv) {
 
 // Change workexperience
 function changeWorkExp(workexp) {
+    toggleChangeForm();
     // Set the values of inputs to existing object
     let companynameInput = document.getElementById('changeCompanyname');
     let jobtitleInput = document.getElementById('changeJobtitle');
@@ -123,13 +123,12 @@ async function updateWorkExp(id) {
             body: JSON.stringify(workexperience)
         });
         const data = await response.json();
-        // Get data agin and write it out
+        toggleChangeForm();
+        // Get data again and write it out
         getData();
     } catch (error) {
         console.log(error);
     }
-
-    
 }
 
 // Delete workexperience
@@ -149,4 +148,14 @@ async function deleteWorkExp(id) {
         console.log(error);
     }
     
+}
+
+function toggleChangeForm() {
+    const changeForm = document.getElementById('changeForm');
+
+    if(changeForm.style.display === 'none') {
+        changeForm.style.display = 'block';
+    } else {
+        changeForm.style.display = 'none';
+    }
 }
