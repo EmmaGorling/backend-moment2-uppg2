@@ -8,19 +8,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Get data from API
 async function getData() {
-    const workexpDiv = document.getElementById('workexperiences');
-    workexpDiv.innerHTML = '';
+    
     try {
         const response = await fetch(url);
         const data = await response.json();
-        writeData(data, workexpDiv);
+        writeData(data);
     } catch (error) {
         console.log('An error occured: ' + error);
     }
 };
 
 // Write out to index.html
-function writeData(workexps, workexpDiv) {
+function writeData(workexps) {
+
+    const workexpDiv = document.getElementById('workexperiences');
+    workexpDiv.innerHTML = '';
 
     if(workexps.length > 0) {
         // Loop trough and create articles
@@ -123,9 +125,10 @@ async function updateWorkExp(id) {
             body: JSON.stringify(workexperience)
         });
         const data = await response.json();
-        toggleChangeForm();
         // Get data again and write it out
         getData();
+
+        toggleChangeForm();
     } catch (error) {
         console.log(error);
     }
@@ -153,9 +156,9 @@ async function deleteWorkExp(id) {
 function toggleChangeForm() {
     const changeForm = document.getElementById('changeForm');
 
-    if(changeForm.style.display === 'none') {
-        changeForm.style.display = 'block';
-    } else {
+    if(changeForm.style.display === 'block') {
         changeForm.style.display = 'none';
+    } else {
+        changeForm.style.display = 'block';
     }
 }
