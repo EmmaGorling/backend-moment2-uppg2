@@ -6,39 +6,48 @@
     <title>Arbetserfarenheter</title>
     <script src="js/main.js" type="module"></script>
     <link rel="stylesheet" href="css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <h1>Arbetserfarenheter</h1>
         <nav>
             <ul>
-                <li><a href="index.html">Arbetserfarenheter</a></li>
+                <li class="active"><a href="index.html">Arbetserfarenheter</a></li>
                 <li><a href="add.html">Lägg till</a></li>
-                <li><a href="about.html">Om uppgiften</a></li>
+                <li><a href="about.html">Om</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <h2>Befintliga arbetserfarenheter</h2>
+        <h2>Tidigare arbetserfarenheter</h2>
         <div id="workexperiences">
         </div>
         <form action="" id="changeForm">
             <label for="changeCompanyname">Arbetsplats:</label>
+            <br>
             <input type="text" name="changeCompanyname" id="changeCompanyname">
             <br>
             <label for="changeLocation">Plats:</label>
+            <br>
             <input type="text" name="changeLocation" id="changeLocation">
             <br>
             <label for="changeJobtitle">Arbetstitel:</label>
+            <br>
             <input type="text" name="changeJobtitle" id="changeJobtitle">
             <br>
             <label for="changeStartdate">Från:</label>
+            <br>
             <input type="date" name="changeStartdate" id="changeStartdate">
             <br>
             <label for="changeEnddate">Till:</label>
+            <br>
             <input type="date" name="changeEnddate" id="changeEnddate">
             <br>
             <label for="changeDescription">Arbetsbeskrivning:</label>
+            <br>
             <textarea name="changeDescription" id="changeDescription" cols="30" rows="6"></textarea>
             <br>
             <input type="submit" id="submit" value="Spara ändring">

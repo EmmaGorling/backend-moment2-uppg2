@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Om uppgiften</title>
     <script src="js/add.js" type="module"></script>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -12,8 +16,8 @@
         <nav>
             <ul>
                 <li><a href="index.html">Arbetserfarenheter</a></li>
-                <li><a href="add.html">Lägg till</a></li>
-                <li><a href="about.html">Om uppgiften</a></li>
+                <li class="active"><a href="add.html">Lägg till</a></li>
+                <li><a href="about.html">Om</a></li>
             </ul>
         </nav>
     </header>
@@ -21,21 +25,27 @@
         <h2>Lägg till en arbetserfarenhet</h2>
         <form action="" id="add">
             <label for="companyname">Arbetsplats:</label>
+            <br>
             <input type="text" name="companyname" id="companyname">
             <br>
             <label for="location">Plats:</label>
+            <br>
             <input type="text" name="location" id="location">
             <br>
             <label for="jobtitle">Arbetstitel:</label>
+            <br>
             <input type="text" name="jobtitle" id="jobtitle">
             <br>
             <label for="startdate">Från:</label>
+            <br>
             <input type="date" name="startdate" id="startdate">
             <br>
             <label for="enddate">Till:</label>
+            <br>
             <input type="date" name="enddate" id="enddate">
             <br>
             <label for="description">Arbetsbeskrivning:</label>
+            <br>
             <textarea name="description" id="description" cols="30" rows="6"></textarea>
             <br>
             <input type="submit" id="submit" value="Lägg till">

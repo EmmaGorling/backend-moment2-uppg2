@@ -1,3 +1,110 @@
+body {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+    color: #141E46;
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+}
+/* Header */
+header {
+    text-align: center;
+    background-color: #8DECB4;
+    color: #141E46;
+}
+ul {
+    margin-right: 40px;
+}
+li {
+    list-style: none;
+    display: inline-block;
+    padding: 5px;
+}
+a {
+    text-decoration: none;
+    color: #141E46;
+    font-weight: 500;
+}
+a:hover, li:hover, .active {
+    text-decoration: underline;
+    background-color: #41B06E;
+    cursor: pointer;
+}
+/* Main */
+main {
+    background-color: #FFF5E0;
+}
+h2 {
+    text-align: center;
+    margin: 50px auto 40px;
+}
+
+/* Article-element */
+article {
+    padding: 10px 20px;
+    width: 90%;
+    max-width: 500px;
+    margin: 30px auto;
+    background-color: #41B06E;
+}
+article p {
+    font-weight: 500;
+}
+.change, .delete, #submit {
+    margin: 5px;
+    border: 2px solid #141E46;
+    height: 2em;
+}
+.change {
+    background-color: #8DECB4;
+}
+.delete {
+    background-color: #f38390;
+}
+.change:hover, .delete:hover, #submit:hover {
+    cursor: pointer;
+}
+
+/* Add-form */
+#add {
+    width: 90%;
+    max-width: 800px;
+    padding: 20px;
+    margin: 30px auto;
+    text-align: center;
+    font-weight: 600;
+    line-height: 2em;
+    background-color: #41B06E;
+}
+input, textarea {
+    border: 2px solid #141E46;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 30px;
+    background-color: #8DECB4;
+    font-weight: 500;
+}
+
+
 #changeForm {
     display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 90%;
+    height: fit-content;
+    max-width: 500px;
+    margin: auto;
+    padding: 40px;
+    text-align: center;
+    background-color: #41B06E;
+    border: 2px solid #141E46;
+    font-weight: 600;
+    line-height: 2em;
 }
+
