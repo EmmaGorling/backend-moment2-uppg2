@@ -617,10 +617,18 @@ async function addNewWorkExp() {
             },
             body: JSON.stringify(workexperience)
         });
-        const data1 = await response.json();
-        messageDiv.innerHTML = "Din arbetserfarenhet har lagts till!";
+        const data = await response.json();
+        if (response.ok) {
+            messageDiv.innerHTML = "Din arbetserfarenhet har lagts till!";
+            document.getElementById("companyname").value = "";
+            document.getElementById("jobtitle").value = "";
+            document.getElementById("location").value = "";
+            document.getElementById("startdate").value = "";
+            document.getElementById("enddate").value = "";
+            document.getElementById("description").value = "";
+        } else messageDiv.innerHTML = "Du m\xe5ste fylla i alla f\xe4lt";
     } catch (error) {
-        messageDiv.innerHTML = data.errors;
+        messageDiv.innerHTML = error;
     }
 }
 

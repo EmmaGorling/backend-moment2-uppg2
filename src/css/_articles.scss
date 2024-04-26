@@ -1,0 +1,34 @@
+/* Main */
+main {
+    background-color: #FFF5E0;
+}
+h2 {
+    text-align: center;
+    margin: 50px auto 40px;
+}
+
+/* Article-element */
+article {
+    padding: 10px 20px;
+    width: 90%;
+    max-width: 500px;
+    margin: 30px auto;
+    background-color: #41B06E;
+}
+article p {
+    font-weight: 500;
+}
+.change, .delete, #submit {
+    margin: 5px;
+    border: 2px solid #141E46;
+    height: 2em;
+}
+.change {
+    background-color: #8DECB4;
+}
+.delete {
+    background-color: #f38390;
+}
+.change:hover, .delete:hover, #submit:hover {
+    cursor: pointer;
+}

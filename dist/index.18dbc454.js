@@ -688,10 +688,12 @@ async function updateWorkExp(id) {
         });
         const data = await response.json();
         // Get data again and write it out
-        getData();
-        toggleChangeForm();
+        if (response.ok) {
+            getData();
+            toggleChangeForm();
+        } else document.getElementById("message").innerHTML = "Du m\xe5ste fylla i alla f\xe4lt";
     } catch (error) {
-        console.log(error);
+        document.getElementById("message").innerHTML = error;
     }
 }
 // Delete workexperience

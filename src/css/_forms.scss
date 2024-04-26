@@ -1,0 +1,37 @@
+/* Add-form */
+#add {
+    width: 90%;
+    max-width: 800px;
+    padding: 20px;
+    margin: 30px auto;
+    text-align: center;
+    font-weight: 600;
+    line-height: 2em;
+    background-color: #41B06E;
+}
+input, textarea {
+    border: 2px solid #141E46;
+}
+#changeForm {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 90%;
+    height: fit-content;
+    max-width: 500px;
+    margin: auto;
+    padding: 40px;
+    text-align: center;
+    background-color: #41B06E;
+    border: 2px solid #141E46;
+    font-weight: 600;
+    line-height: 2em;
+}
+#message {
+    text-align: center;
+    margin: 5px auto;
+    color: red;
+}
